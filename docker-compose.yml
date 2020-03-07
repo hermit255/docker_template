@@ -1,0 +1,26 @@
+version: "3"
+services:
+  node:
+    # image: ${IMAGE_1}
+    # build:
+    #   context: ${BUILD_1}
+    #   dockerfile: ${DOCKER_FILE_NAME_1}
+    image: ${IMAGE_1}
+    container_name: ${CONTAINER_NAME_1}
+    volumes:
+      - ${WORKDIR_HOST_1}:${WORKDIR_DOCKER_1}
+      - ${SCRIPTDIR_HOST_1}:${SCRIPTDIR_DOCKER_1}
+    working_dir: ${WORKDIR_DOCKER_1}
+    environment:
+      - LOCAL_UID=${UID_1}
+      - LOCAL_GID=${GID_1}
+      - WORKDIR_DOCKER=${WORKDIR_DOCKER_1}
+      - SCRIPTDIR_DOCKER=${SCRIPTDIR_DOCKER_1}
+    user: ${UID_1}:${GID_1}
+    ports:
+      - ${PORT_HOST_1}:${PORT_DOCKER_1}
+    # depends_on:
+    command: ${COMMAND_1}
+# volumes:
+  # /* On windows, node_modules directory should be volume to enable symbolic link */
+  # my_volume:
